@@ -3,24 +3,29 @@ package org.example.strategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 
 @Component
 public class CustomerForward {
 
-    private AccountService accountService;
+    private final List<AccountService> accountServiceList;
 
-    public void setAccountService(AccountService accountService){
-        this.accountService=accountService;
+    public CustomerForward(List<AccountService> accountServiceList) {
+        this.accountServiceList = accountServiceList;
     }
 
-    public void accountForward(){
+    public void accountForward(String type){
 
-        if(accountService == null){
-            throw new RuntimeException("Hesap tipine erişilemedi");
-
+        if (accountServiceList.isEmpty()) {
+            throw new RuntimeException("hata!");
         }
-        accountService.accountForward();
+
+        accountServiceList.stream()
+                .filter(accountService -> accountService.isApplicable(type))
+                .findFirst()
+                .ifPresent(accountService -> accountService.accountForward());
+
     }
 
 }

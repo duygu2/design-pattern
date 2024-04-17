@@ -1,31 +1,29 @@
 package org.example;
 
-import org.example.strategy.CorporateAccountService;
-import org.example.strategy.CustomerForward;
-import org.example.strategy.IndividualAccountService;
-import org.example.strategy.NotRegisteredAccountService;
+import org.example.strategy.*;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
         // strategy design pattern used
 
-        CustomerForward customerForward= new CustomerForward();
 
         //customerForward.accountForward();
 
-        customerForward.setAccountService(new IndividualAccountService());
-        customerForward.accountForward();
+        IndividualAccountService individualAccountService = new IndividualAccountService();
 
-        customerForward.setAccountService(new CorporateAccountService());
-        customerForward.accountForward();
+        CorporateAccountService corporateAccountService = new CorporateAccountService();
 
-        customerForward.setAccountService(new NotRegisteredAccountService());
-        customerForward.accountForward();
+        NotRegisteredAccountService notRegisteredAccountService = new NotRegisteredAccountService();
 
+        List<AccountService> accountServiceList = List.of(individualAccountService, corporateAccountService, notRegisteredAccountService);
 
 
+        CustomerForward customerForward= new CustomerForward(accountServiceList);
 
+        customerForward.accountForward("bireysel");
    /*
 
      // Manuel selected

@@ -8,4 +8,9 @@ public class NotRegisteredAccountService implements AccountService {
     public void accountForward() {
         System.out.println("Hesap oluşturma sayfasına yönlendiriliyorsunuz...");
     }
+
+    @Override
+    public boolean isApplicable(String type) {
+        return "izinsiz".equals(type);
+    }
 }
