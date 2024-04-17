@@ -1,4 +1,4 @@
-package org.example;
+package org.example.manuel;
 
 public class AccountManagement {
 
