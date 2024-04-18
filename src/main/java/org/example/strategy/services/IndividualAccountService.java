@@ -1,5 +1,6 @@
-package org.example.strategy;
+package org.example.strategy.services;
 
+import org.example.strategy.services.AccountService;
 import org.springframework.stereotype.Service;
 
 @Service

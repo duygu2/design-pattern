@@ -1,20 +1,18 @@
-package org.example.strategy;
+package org.example.strategy.services;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Map;
 
 @Component
-public class CustomerForward {
+public class CustomerForwardService {
+
 
     private final List<AccountService> accountServiceList;
 
-    public CustomerForward(List<AccountService> accountServiceList) {
+   public CustomerForwardService(List<AccountService> accountServiceList) {
         this.accountServiceList = accountServiceList;
     }
-
     public void accountForward(String type){
 
         if (accountServiceList.isEmpty()) {
@@ -24,8 +22,9 @@ public class CustomerForward {
         accountServiceList.stream()
                 .filter(accountService -> accountService.isApplicable(type))
                 .findFirst()
-                .ifPresent(accountService -> accountService.accountForward());
-
+                .ifPresentOrElse(accountService -> accountService.accountForward(),
+                        ()-> {throw new RuntimeException("Geçersiz hesap türü: " + type);}
+                        );
     }
 
 }
