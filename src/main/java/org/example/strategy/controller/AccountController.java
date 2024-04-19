@@ -17,8 +17,7 @@ public class AccountController {
 
 
   @GetMapping("/{type}")
-    public void getAccountType(@PathVariable String type) {
-        customerForwardService.accountForward(type);
-
+    public String getAccountType(@PathVariable String type) {
+      return customerForwardService.accountForward(type);
   }
 }

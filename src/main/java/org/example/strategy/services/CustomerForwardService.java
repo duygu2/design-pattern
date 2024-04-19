@@ -3,6 +3,7 @@ package org.example.strategy.services;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class CustomerForwardService {
@@ -13,18 +14,19 @@ public class CustomerForwardService {
    public CustomerForwardService(List<AccountService> accountServiceList) {
         this.accountServiceList = accountServiceList;
     }
-    public void accountForward(String type){
+    public String accountForward(String type){
 
         if (accountServiceList.isEmpty()) {
-            throw new RuntimeException("hata!");
+            throw new RuntimeException("Hesap türü bulunamadı!");
         }
 
-        accountServiceList.stream()
+        Optional<String> result= accountServiceList.stream()
                 .filter(accountService -> accountService.isApplicable(type))
                 .findFirst()
-                .ifPresentOrElse(accountService -> accountService.accountForward(),
-                        ()-> {throw new RuntimeException("Geçersiz hesap türü: " + type);}
-                        );
+                .map(accountService -> accountService.accountForward());
+
+        return result.orElseThrow(()-> new RuntimeException("Geçersiz hesap türü " + type));
+
     }
 
 }

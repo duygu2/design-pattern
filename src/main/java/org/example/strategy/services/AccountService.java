@@ -2,7 +2,7 @@ package org.example.strategy.services;
 
 public interface AccountService {
 
-    void accountForward();
+    String accountForward();
 
     boolean isApplicable(String type);
 
