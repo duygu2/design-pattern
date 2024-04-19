@@ -1,4 +1,4 @@
-package org.example.strategy.controller;
+package org.example.manuel;
 
 import lombok.RequiredArgsConstructor;
 import org.example.strategy.services.concretes.CustomerForwardService;
@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v2/account")
+@RequestMapping("/api/v1/account")
 @RequiredArgsConstructor
-public class AccountController {
-
+public class AccountManuelController {
     private final CustomerForwardService customerForwardService;
 
-
-  @GetMapping("/{type}")
+    @GetMapping("/{type}")
     public String getAccountType(@PathVariable String type) {
       return customerForwardService.accountForward(type);
-  }
-}
+        }
+    }
+

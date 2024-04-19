@@ -1,5 +1,6 @@
-package org.example.strategy.services;
+package org.example.strategy.services.concretes;
 
+import org.example.strategy.services.abstratcs.AccountService;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

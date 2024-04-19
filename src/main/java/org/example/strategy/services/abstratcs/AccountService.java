@@ -1,4 +1,4 @@
-package org.example.strategy.services;
+package org.example.strategy.services.abstratcs;
 
 public interface AccountService {
 
