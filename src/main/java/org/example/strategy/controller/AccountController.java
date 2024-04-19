@@ -1,7 +1,9 @@
 package org.example.strategy.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.strategy.services.CustomerForwardService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +18,7 @@ public class AccountController {
 
 
   @GetMapping("/{type}")
-    public void getAccountType(@PathVariable String type) {
+    public void getAccountType(@PathVariable @Valid String type) {
         customerForwardService.accountForward(type);
 
   }
