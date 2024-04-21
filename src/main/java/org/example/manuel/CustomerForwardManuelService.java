@@ -14,10 +14,10 @@ public class CustomerForwardManuelService {
     }
 
     public String customerForward(String type){
-        if(type.equals("bireysel")) return accountManuelService.individualAccountForward();
-        else if(type.equals("kurumsal")) return  accountManuelService.corporateAccountForward();
-        else if (type.equals("izinsiz"))  return accountManuelService.notRegisteredAccount();
-        else return "Geçersiz bir seçim yaptınız.";
+        if(type.equals("individual")) return accountManuelService.individualAccountForward();
+        else if(type.equals("corporate")) return  accountManuelService.corporateAccountForward();
+        else if (type.equals("notRegistered"))  return accountManuelService.notRegisteredAccount();
+        else return "An Invalid Account: " + type;
 
     }
 }

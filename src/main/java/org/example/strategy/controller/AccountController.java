@@ -1,7 +1,7 @@
 package org.example.strategy.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.strategy.services.concretes.CustomerForwardStrategyService;
+import org.example.strategy.services.CustomerForwardStrategyService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -6,15 +6,15 @@ import org.springframework.stereotype.Service;
 public class AccountManuelService {
 
     public String individualAccountForward(){
-        return "Bireysel hesaba yönlendiriliyorsunuz...";
+        return "You are directed to the individual account.. ";
     }
 
     public String corporateAccountForward(){
-        return "Kurumsal hesaba yönlendiriliyorsunuz...";
+        return "You are directed to the corporate account.. ";
     }
 
     public String notRegisteredAccount(){
-        return "Hesap oluşturma sayfasına yönlendiriliyorsunuz..";
+        return "You are directed to the register page.. ";
     }
 
 }

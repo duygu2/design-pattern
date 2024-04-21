@@ -1,6 +1,6 @@
-package org.example.strategy.services.concretes;
+package org.example.strategy.services;
 
-import org.example.strategy.services.abstratcs.AccountService;
+import org.example.strategy.exceptions.BusinessException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class CustomerForwardStrategyService {
     public String customerForward(String type){
 
         if (accountServiceList.isEmpty()) {
-            throw new RuntimeException("Hesap türü bulunamadı!");
+            throw new BusinessException("Don't Found Account!");
         }
 
         Optional<String> result= accountServiceList.stream()
@@ -26,7 +26,7 @@ public class CustomerForwardStrategyService {
                 .findFirst()
                 .map(accountService -> accountService.accountForward());
 
-        return result.orElseThrow(()-> new RuntimeException("Geçersiz hesap türü " + type));
+        return result.orElseThrow(()-> new BusinessException("An Invalid Account: " + type));
 
     }
 
