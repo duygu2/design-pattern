@@ -8,12 +8,11 @@ import org.springframework.stereotype.Service;
 public class NotRegisteredAccountService implements AccountService {
     @Override
     public String accountForward() {
-        //System.out.println("Hesap oluşturma sayfasına yönlendiriliyorsunuz...");
         return "You are directed to the register page..";
     }
 
     @Override
     public boolean isApplicable(String type) {
-        return AccountType.notRegistered.toString().equals(type);
+        return AccountType.NOT_REGISTERED.toString().equals(type);
     }
 }

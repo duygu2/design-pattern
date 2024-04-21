@@ -13,6 +13,6 @@ public class IndividualAccountService implements AccountService {
 
     @Override
     public boolean isApplicable(String type) {
-        return AccountType.individual.toString().equals(type);
+        return AccountType.INDIVIDUAL.toString().equals(type);
     }
 }

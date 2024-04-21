@@ -2,7 +2,7 @@ package org.example.strategy;
 
 public enum AccountType {
 
-    individual,
-    corporate,
-    notRegistered
+    INDIVIDUAL,
+    CORPORATE,
+    NOT_REGISTERED
 }
