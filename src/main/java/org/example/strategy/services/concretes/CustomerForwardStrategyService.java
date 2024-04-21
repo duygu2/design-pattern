@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class CustomerForwardService {
+public class CustomerForwardStrategyService {
 
 
     private final List<AccountService> accountServiceList;
 
-   public CustomerForwardService(List<AccountService> accountServiceList) {
+   public CustomerForwardStrategyService(List<AccountService> accountServiceList) {
         this.accountServiceList = accountServiceList;
     }
-    public String accountForward(String type){
+    public String customerForward(String type){
 
         if (accountServiceList.isEmpty()) {
             throw new RuntimeException("Hesap türü bulunamadı!");
