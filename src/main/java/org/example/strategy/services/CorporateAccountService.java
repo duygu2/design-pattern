@@ -1,6 +1,6 @@
 package org.example.strategy.services;
 
-import org.example.strategy.AccountType;
+import org.example.strategy.enums.AccountType;
 import org.springframework.stereotype.Service;
 
 @Service
